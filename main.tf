@@ -1,5 +1,5 @@
 module "vpc" {
-  source       = "./vpc"
+  source       = "github.com/Shadow-Lord123/Terraform_Database_GCP//vpc?ref=main"
   project_id  = var.project_id
   region      = var.region
   vpc_name    = var.vpc_name
