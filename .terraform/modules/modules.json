@@ -1,1 +1,0 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"database","Source":"./database","Dir":"database"},{"Key":"vpc","Source":"git::https://github.com/Shadow-Lord123/Terraform_Database_GCP.git//vpc?ref=main","Dir":".terraform/modules/vpc/vpc"}]}
