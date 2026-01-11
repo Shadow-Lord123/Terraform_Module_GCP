@@ -20,7 +20,7 @@ module "database" {
 }
 
 module "vm" {
-  source = "./vm"
+  source = "github.com/Shadow-Lord123/Terraform_VM_GCP//VM?ref=main"
 
   project_id = var.project_id
   vm_name    = var.vm_name
