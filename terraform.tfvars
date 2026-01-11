@@ -26,6 +26,10 @@ service_account_scopes = [
   "https://www.googleapis.com/auth/cloud-platform"
 ]
 
+name_prefix = "web-lb"
+environment = "dev"
+
+
 labels = {
   environment = "dev"
 }

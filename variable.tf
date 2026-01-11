@@ -82,3 +82,12 @@ variable "labels" {
   type        = map(string)
 }
 
+variable "name_prefix" {
+  description = "Prefix for all load balancer resources"
+  type        = string
+}
+
+variable "environment" {
+  description = "Deployment environment (dev, staging, prod)"
+  type        = string
+}

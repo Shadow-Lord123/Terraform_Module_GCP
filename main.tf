@@ -20,7 +20,7 @@ module "database" {
 }
 
 module "vm" {
-  source = "github.com/Shadow-Lord123/Terraform_VM_GCP//VM?ref=main"
+  source = "github.com/Shadow-Lord123/Terraform_VM_GCP//vm?ref=main"
 
   project_id = var.project_id
   vm_name    = var.vm_name
@@ -43,4 +43,18 @@ module "vm" {
 
   service_account_email  = var.service_account_email
   service_account_scopes = var.service_account_scopes
+}
+
+module "load_balancer" {
+  source = "./load_balancer"
+
+  project_id = var.project_id
+  zone       = var.zone
+  environment = var.environment
+
+  name_prefix = "web-lb"
+
+  instance_self_link = module.vm.vm_self_link
+  network_self_link  = module.vpc.network_self_link
+  network_tags       = var.network_tags
 }
