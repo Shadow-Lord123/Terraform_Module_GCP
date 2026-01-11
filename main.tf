@@ -46,7 +46,7 @@ module "vm" {
 }
 
 module "load_balancer" {
-  source = "./load_balancer"
+  source = "github.com/Shadow-Lord123/Terraform-Load-Balancer-GCP//load_balancer?ref=main"
 
   project_id = var.project_id
   zone       = var.zone
@@ -57,4 +57,14 @@ module "load_balancer" {
   instance_self_link = module.vm.vm_self_link
   network_self_link  = module.vpc.network_self_link
   network_tags       = var.network_tags
+}
+
+module "gcs" {
+  source = "github.com/Shadow-Lord123/Terraform-GCS-GCP//google_cloud_storage?ref=main"
+
+  project_id  = var.project_id
+  region      = var.region
+  name_prefix = var.name_prefix
+  environment = var.environment
+  labels      = var.labels
 }
