@@ -18,3 +18,29 @@ module "database" {
   network_self_link = module.vpc.network_self_link
   service_networking_connection_id  = module.vpc.service_networking_connection_id
 }
+
+module "vm" {
+  source = "./vm"
+
+  project_id = var.project_id
+  vm_name    = var.vm_name
+  zone       = var.zone
+
+  machine_type     = var.machine_type
+  assign_public_ip = var.assign_public_ip
+
+  boot_image        = var.boot_image
+  boot_disk_size_gb = var.boot_disk_size_gb
+  boot_disk_type    = var.boot_disk_type
+
+  network_tags = var.network_tags
+  labels       = var.labels
+  metadata     = var.metadata
+  subnetwork_self_link = module.vpc.subnetwork_self_link
+  network_self_link = module.vpc.network_self_link
+
+  startup_script = var.startup_script
+
+  service_account_email  = var.service_account_email
+  service_account_scopes = var.service_account_scopes
+}
